@@ -2,6 +2,9 @@ import vuePlugin from 'rollup-plugin-vue';
 import css from 'rollup-plugin-css-only';
 import typescript from 'rollup-plugin-typescript2';
 import {
+  terser
+} from 'rollup-plugin-terser';
+import {
   nodeResolve
 } from '@rollup/plugin-node-resolve';
 import {
@@ -13,7 +16,7 @@ const overrides = {
   compilerOptions: {
     declaration: true
   },
-  exclude: ['node_modules',]
+  exclude: ['node_modules', ]
 }
 export {
   name,
@@ -27,6 +30,7 @@ export default {
     format: 'es',
   },
   plugins: [
+    terser(),
     nodeResolve(),
     typescript({
       tsconfigOverride: overrides

@@ -1,19 +1,38 @@
 {
   "name": "cherry-bircks",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
+  "main": "dist/cherry-bircks.umd.js",
+  "module": "dist/cherry-bircks.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "sleepy_cat yang",
+  "license": "MIT",
+  "keywords": [
+    "Component",
+    "UI",
+    "Vue3"
+  ],
+  "homepage": "https://gitee.com/xiao_ya-12/cherry-bircks",
+  "repository": {
+    "type": "get",
+    "url": "https://gitee.com/xiao_ya-12/cherry-bircks"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
     "lint": "vue-cli-service lint",
     "build:esm": "rollup --config build/rollup.esm.config.js",
     "build:umd": "rollup --config build/rollup.umd.config.js",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "core-js": "^3.6.5",
     "lodash-es": "^4.17.21"
   },
+  "files": [
+    "dist"
+  ],
   "peerDependencies": {
     "vue": "^3.0.0"
   },
@@ -33,6 +52,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.70.0",
     "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.31.2",
     "rollup-plugin-vue": "^6.0.0",
     "typescript": "~4.3.5",

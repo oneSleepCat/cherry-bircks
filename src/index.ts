@@ -3,7 +3,6 @@ import LText from './components/LText';
 import LShape from './components/LShape';
 import LImage from './components/LImage';
 
-
 const components = [LText, LShape, LImage];
 
 const install = (app: App) => {
